@@ -19,3 +19,21 @@ def to_log_returns(prices):
 
     return (np.log(np.array(prices)) - np.log(result))[1:]
 
+# Step 2 - rolling_zscore
+import numpy as np
+
+def rolling_zscore(x, window):
+    # TODO: causal rolling z-score; first window-1 entries are np.nan
+    # TODO: a window with zero standard deviation scores 0.0
+    
+    z = np.full((len(x),), np.nan)
+    
+    for i in range(window - 1, len(x), 1):
+        if x[i - window + 1: i + 1].std() == 0:
+            z[i] = 0
+        else:
+            z[i] = (x[i] - x[i - window + 1: i + 1].mean()) / x[i - window + 1: i + 1].std()
+
+
+    return z
+
