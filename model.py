@@ -114,3 +114,19 @@ def predict_ols(X, coef):
     
     return coef[0] + X @ coef[1:]
 
+# Step 9 - r2_score
+import numpy as np
+
+def r2_score(y_true, y_pred):
+    # TODO: 1 - SS_res / SS_tot, returning 0.0 when SS_tot is 0
+    
+    SS_res = np.square(y_true - y_pred).sum() 
+    SS_tot = np.square(y_true - y_true.mean()).sum()
+
+    if SS_tot == 0:
+        return 0.0
+
+    r_squared = 1 - (SS_res/SS_tot)
+
+    return r_squared
+
