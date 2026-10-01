@@ -55,3 +55,17 @@ def momentum_feature(prices, lookback):
 
     return z
 
+# Step 4 - has_lookahead
+import numpy as np
+
+def has_lookahead(feature_fn, x):
+    # TODO: perturb only the last element of a copy of x
+    # TODO: return True if any earlier output value changed (NaN counts as equal to NaN)
+    
+    base = feature_fn(x)
+    perturbed = x.copy(); 
+    perturbed[-1] += 1000.0
+    changed = not np.allclose(base[:-1], feature_fn(perturbed)[:-1], equal_nan=True)
+
+    return changed
+
