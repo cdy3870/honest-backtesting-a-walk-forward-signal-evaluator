@@ -106,3 +106,11 @@ def fit_ols(X, y):
 
     return x
 
+# Step 8 - predict_ols
+import numpy as np
+
+def predict_ols(X, coef):
+    # TODO: intercept is coef[0]; slopes are coef[1:]
+    
+    return coef[0] + X @ coef[1:]
+

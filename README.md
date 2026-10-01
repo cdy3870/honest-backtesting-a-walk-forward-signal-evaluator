@@ -17,6 +17,7 @@ python scaffold.py
 - [x] **5.** audit_features
 - [x] **6.** purged_walk_forward_splits
 - [x] **7.** fit_ols
+- [x] **8.** predict_ols
 
 ---
 
