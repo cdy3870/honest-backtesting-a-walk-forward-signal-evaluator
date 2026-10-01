@@ -140,3 +140,17 @@ def information_coefficient(y_true, y_pred):
         return 0.0
     return ((y_true - y_true.mean()) * (y_pred - y_pred.mean())).sum() / den
 
+# Step 11 - sharpe_ratio
+import numpy as np
+
+def sharpe_ratio(returns, periods_per_year):
+    # TODO: mean / std(ddof=1) * sqrt(periods_per_year)
+    # TODO: return 0.0 for zero volatility or fewer than two observations
+    mean = returns.mean()
+    if len(returns) == 1:
+        return 0.0
+    std = np.std(returns, ddof=1) # n - 1, corrects bias when sample used to estimate large
+    if std == 0 or periods_per_year == 0:
+        return 0.0
+    return mean / std * periods_per_year ** 0.5
+

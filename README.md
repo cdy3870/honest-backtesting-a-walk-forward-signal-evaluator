@@ -20,6 +20,7 @@ python scaffold.py
 - [x] **8.** predict_ols
 - [x] **9.** r2_score
 - [x] **10.** information_coefficient
+- [x] **11.** sharpe_ratio
 
 ---
 
