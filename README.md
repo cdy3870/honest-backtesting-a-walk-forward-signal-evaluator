@@ -19,6 +19,7 @@ python scaffold.py
 - [x] **7.** fit_ols
 - [x] **8.** predict_ols
 - [x] **9.** r2_score
+- [x] **10.** information_coefficient
 
 ---
 

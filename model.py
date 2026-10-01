@@ -130,3 +130,13 @@ def r2_score(y_true, y_pred):
 
     return r_squared
 
+# Step 10 - information_coefficient
+import numpy as np
+
+def information_coefficient(y_true, y_pred):
+    # TODO: Pearson correlation; return 0.0 if either input has zero variance
+    den = (np.sqrt(np.square(y_true - y_true.mean()).sum()) * np.sqrt(np.square(y_pred - y_pred.mean()).sum()))
+    if den == 0:
+        return 0.0
+    return ((y_true - y_true.mean()) * (y_pred - y_pred.mean())).sum() / den
+
