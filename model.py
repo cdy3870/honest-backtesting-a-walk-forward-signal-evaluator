@@ -80,3 +80,29 @@ def audit_features(feature_fns, x):
 
     return d
 
+# Step 6 - purged_walk_forward_splits
+import numpy as np
+
+def purged_walk_forward_splits(n_samples, n_splits, embargo):
+    # TODO: expanding-window splits with an embargo gap before each test block
+    
+    fold_size = n_samples // (n_splits + 1)
+
+    test_samples = []
+
+    for k in range(1, n_splits, 1):
+        test_block = [k * fold_size, (k + 1) * fold_size]
+        [0, k * fold_size - embargo]
+
+# Step 7 - fit_ols
+import numpy as np
+
+def fit_ols(X, y):
+    # TODO: prepend an intercept column and return the least-squares coefficients
+    n, p = X.shape[0], X.shape[1]
+    X = np.hstack((np.ones((n, 1)), X))
+
+    x, residuals, rank, s = np.linalg.lstsq(X, y)
+
+    return x
+

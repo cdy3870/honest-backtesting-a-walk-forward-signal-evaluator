@@ -15,6 +15,8 @@ python scaffold.py
 - [x] **3.** momentum_feature
 - [x] **4.** has_lookahead
 - [x] **5.** audit_features
+- [x] **6.** purged_walk_forward_splits
+- [x] **7.** fit_ols
 
 ---
 
