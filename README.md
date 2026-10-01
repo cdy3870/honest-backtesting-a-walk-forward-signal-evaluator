@@ -12,6 +12,7 @@ python scaffold.py
 
 - [x] **1.** to_log_returns
 - [x] **2.** rolling_zscore
+- [x] **3.** momentum_feature
 
 ---
 

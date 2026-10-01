@@ -37,3 +37,21 @@ def rolling_zscore(x, window):
 
     return z
 
+# Step 3 - momentum_feature
+import numpy as np
+
+def momentum_feature(prices, lookback):
+    # TODO: ln(p_t / p_{t-lookback}); entries before index lookback are np.nan
+    
+    prices = np.array(prices)
+
+    z = np.full((len(prices),), np.nan)
+    
+    # for i in range(lookback - 1, len(prices), 1):
+
+    #     z[i] = np.log((prices[i]) / (prices[i - lookback]))
+
+    z[lookback:] = np.log(prices[lookback:] / prices[:-lookback])
+
+    return z
+
