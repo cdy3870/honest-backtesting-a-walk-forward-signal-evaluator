@@ -69,3 +69,14 @@ def has_lookahead(feature_fn, x):
 
     return changed
 
+# Step 5 - audit_features
+import numpy as np
+
+def audit_features(feature_fns, x):
+    # TODO: return {name: has_lookahead(fn, x)} for every entry
+    d = {}
+    for k, v in feature_fns.items():
+        d[k] = has_lookahead(v, x)
+
+    return d
+

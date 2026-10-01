@@ -14,6 +14,7 @@ python scaffold.py
 - [x] **2.** rolling_zscore
 - [x] **3.** momentum_feature
 - [x] **4.** has_lookahead
+- [x] **5.** audit_features
 
 ---
 
