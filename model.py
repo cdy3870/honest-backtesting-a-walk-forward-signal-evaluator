@@ -154,3 +154,24 @@ def sharpe_ratio(returns, periods_per_year):
         return 0.0
     return mean / std * periods_per_year ** 0.5
 
+# Step 15 - permutation_pvalue
+import numpy as np
+
+def permutation_pvalue(positions, forward_returns, n_permutations, seed):
+    # TODO: observed = mean(positions * forward_returns)
+    # TODO: permute forward_returns with default_rng(seed), count >= observed
+    # TODO: return (count + 1) / (n_permutations + 1)
+    observed = (positions * forward_returns).mean()
+    rng = np.random.default_rng(seed)
+
+    means = []
+    count = 0
+    
+    for n in range(n_permutations):
+        permuted = rng.permutation(forward_returns)
+        if (positions * permuted).mean() >= observed:
+            count += 1
+
+        
+    return (count + 1) / (n_permutations + 1)
+
