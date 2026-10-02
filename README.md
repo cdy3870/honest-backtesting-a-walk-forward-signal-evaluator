@@ -22,6 +22,7 @@ python scaffold.py
 - [x] **10.** information_coefficient
 - [x] **11.** sharpe_ratio
 - [x] **15.** permutation_pvalue
+- [x] **16.** deflate_pvalue
 
 ---
 

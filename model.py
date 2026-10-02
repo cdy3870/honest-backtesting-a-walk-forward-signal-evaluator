@@ -175,3 +175,11 @@ def permutation_pvalue(positions, forward_returns, n_permutations, seed):
         
     return (count + 1) / (n_permutations + 1)
 
+# Step 16 - deflate_pvalue
+import numpy as np
+
+def deflate_pvalue(p_value, n_trials):
+    # TODO: Bonferroni adjustment, capped at 1.0
+    
+    return min(1.0, p_value * n_trials)
+
