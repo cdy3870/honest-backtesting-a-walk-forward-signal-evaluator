@@ -169,9 +169,7 @@ def strategy_returns(positions, forward_returns, cost_bps):
     # TODO: gross = positions * forward_returns
     # TODO: turnover = abs(pos_t - pos_{t-1}) with pos_{-1} = 0
     # TODO: subtract turnover * cost_bps / 10000
-    
-    positions = np.asarray(positions, dtype=float)
-    forward_returns = np.asarray(forward_returns, dtype=float)
+
     
     gross = positions * forward_returns
 
