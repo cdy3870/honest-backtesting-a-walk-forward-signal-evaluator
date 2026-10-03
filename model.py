@@ -166,14 +166,20 @@ def positions_from_predictions(preds, threshold):
 import numpy as np
 
 def strategy_returns(positions, forward_returns, cost_bps):
+    # TODO: gross = positions * forward_returns
+    # TODO: turnover = abs(pos_t - pos_{t-1}) with pos_{-1} = 0
+    # TODO: subtract turnover * cost_bps / 10000
+    
     positions = np.asarray(positions, dtype=float)
     forward_returns = np.asarray(forward_returns, dtype=float)
-
+    
     gross = positions * forward_returns
 
-    # pos_{-1} = 0, so the first trade is charged from a flat start
-    prev_positions = np.concatenate(([0.0], positions[:-1]))
-    turnover = np.abs(positions - prev_positions)
+    result = np.empty_like(positions, dtype=float)
+    result[:1] = 0
+    result[1:] = np.array(positions)[:-1]
+
+    turnover = np.abs(positions - result)
 
     return gross - turnover * cost_bps / 10000
 
