@@ -162,6 +162,21 @@ def positions_from_predictions(preds, threshold):
     # TODO: sign(pred) where abs(pred) >= threshold, else 0.0; NaN maps to 0.0
     return np.where(abs(preds) >= threshold, np.sign(preds), 0)
 
+# Step 14 - strategy_returns
+import numpy as np
+
+def strategy_returns(positions, forward_returns, cost_bps):
+    positions = np.asarray(positions, dtype=float)
+    forward_returns = np.asarray(forward_returns, dtype=float)
+
+    gross = positions * forward_returns
+
+    # pos_{-1} = 0, so the first trade is charged from a flat start
+    prev_positions = np.concatenate(([0.0], positions[:-1]))
+    turnover = np.abs(positions - prev_positions)
+
+    return gross - turnover * cost_bps / 10000
+
 # Step 15 - permutation_pvalue
 import numpy as np
 
