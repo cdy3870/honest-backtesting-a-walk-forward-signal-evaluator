@@ -154,6 +154,14 @@ def sharpe_ratio(returns, periods_per_year):
         return 0.0
     return mean / std * periods_per_year ** 0.5
 
+# Step 13 - positions_from_predictions
+import numpy as np
+import math
+
+def positions_from_predictions(preds, threshold):
+    # TODO: sign(pred) where abs(pred) >= threshold, else 0.0; NaN maps to 0.0
+    return np.where(abs(preds) >= threshold, np.sign(preds), 0)
+
 # Step 15 - permutation_pvalue
 import numpy as np
 
